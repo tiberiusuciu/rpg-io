@@ -1,0 +1,27 @@
+:local(.MainPageLayout) {
+	height: 100vh;
+	width: 100%;
+}
+
+:local(.TerminalLayout) {
+	background-color: black;
+	color: white;
+	display: inline-block;
+	height: 100vh;
+}
+
+:local(.InformationLayout) {
+	padding: 0px;
+	display: inline-block;
+	height: 100vh;
+}
+
+:local(.CanvasLayout) {
+	height: 50vh;
+	background-color: lime;
+}
+
+:local(.DetailsBox) {
+	height: 50vh;
+	background-color: gold;
+}
