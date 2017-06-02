@@ -6,6 +6,12 @@ class TerminalInput extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+		// console.log('TEST!!!');
+	}
+
+	handleChange(e) {
+		e.preventDefault();
+		this.props.onUserCurrentInput(e.target.value);
 	}
 
 	render() {
@@ -16,7 +22,7 @@ class TerminalInput extends Component {
 				</div>
 				<div className={styles.terminalInputField}>
 					<form onSubmit={this.handleSubmit}>
-						<input autofocus={true} className={styles.terminalInputText} name="command" type="text"/>
+						<input autofocus={true} onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
 					</form>
 				</div>
 			</div>

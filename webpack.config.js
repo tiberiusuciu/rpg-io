@@ -24,11 +24,11 @@ module.exports = {
 				loader: 'babel-loader',
 				exclude: /node_modules/,
 				query: {
-					presets: ['react', 'es2015', 'react-hmre']
+					presets: ['react', 'stage-0', 'es2015', 'react-hmre']
 				}
 			},
 			{
-				test: /\.css$/, 
+				test: /\.css$/,
 				loader: "style-loader!css-loader"
 			}
 		]

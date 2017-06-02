@@ -12,7 +12,7 @@ class TerminalBox extends Component {
 					<TerminalLogs/>
 				</div>
 				<div className={styles.terminalInput}>
-					<TerminalInput/>
+					<TerminalInput onUserCurrentInput={this.props.onUserCurrentInput} userCurrentInput={this.props.userCurrentInput}/>
 				</div>
 			</div>
 		)

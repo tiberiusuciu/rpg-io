@@ -1,9 +1,12 @@
 import MainPage from '../components/MainPage';
 import { connect } from 'react-redux';
 // import { test, setAddress, navigate, startProject, resetDone, setReferredId } from '../../actions';
+import { setUserCurrentInput } from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
+		userCurrentInput: state.userCurrentInput,
+		userInputHistory: state.userInputHistory,
 		// referredId: ownProps.location.query.referredId,
 	};
 };
@@ -34,6 +37,9 @@ const mapDispatchToProps = (dispatch) => {
 		// test: () => {
 		// 	dispatch(test());
 		// },
+		onUserCurrentInput: (userCurrentInput) => {
+			dispatch(setUserCurrentInput(userCurrentInput));
+		},
 	};
 };
 

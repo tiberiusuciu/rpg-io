@@ -14,6 +14,7 @@ import { merge } from 'lodash';
 // import utilityReducer from './utilityReducer.js';
 // import appAlertReducer from './appAlertReducer.js';
 // import bankReducer from './bankReducer.js';
+import terminalBoxReducer from './terminalBoxReducer.js';
 
 function entities(state = { usage:0 }, action) {
 	if (action.response && action.response.entities) {
@@ -37,6 +38,7 @@ function entities(state = { usage:0 }, action) {
 export default combineReducers({
 	routing,
 	entities,
+	...terminalBoxReducer,
 	// forms,
 	// ...drawMyRoofReducer,
 	// ...referalProgramReducer,

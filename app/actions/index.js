@@ -84,6 +84,7 @@ import { history } from '../services';
 // export const CHANGE_TARGET_USER = 'CHANGE_TARGET_USER';
 // export const SPECIFIC_USER_REFERRALS = 'SPECIFIC_USER_REFERRALS';
 // export const GET_SPECIFIC_USER = 'GET_SPECIFIC_USER';
+export const SET_USER_CURRENT_INPUT = 'SET_USER_CURRENT_INPUT';
 
 function action(type, payload = {}) {
 	return { type, ...payload };
@@ -175,3 +176,4 @@ function action(type, payload = {}) {
 // export const changeTargetUser = (auth0Id) => action(CHANGE_TARGET_USER, { auth0Id });
 // export const getSpecificUser = (accessToken, targetAuth0UserId) => action(GET_SPECIFIC_USER, { accessToken, targetAuth0UserId });
 // export const test = () => action(TEST, {});
+export const setUserCurrentInput = (userCurrentInput) => action(SET_USER_CURRENT_INPUT, { userCurrentInput });

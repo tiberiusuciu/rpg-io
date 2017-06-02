@@ -11,7 +11,7 @@ class MainPage extends Component {
 		return (
 			<div className={styles.MainPageLayout}>
 				<div className={styles.TerminalLayout + " col-xs-8"}>
-					<TerminalBox/>
+					<TerminalBox onUserCurrentInput={this.props.onUserCurrentInput} userCurrentInput={this.props.userCurrentInput} />
 				</div>
 				<div className={styles.InformationLayout + " col-xs-4"}>
 					<div className={styles.CanvasLayout}>
