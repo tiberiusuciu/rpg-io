@@ -5,8 +5,9 @@ import styles from '../styles/TerminalInput.css'
 class TerminalInput extends Component {
 
 	handleSubmit(e) {
+		console.log(this);
 		e.preventDefault();
-		// console.log('TEST!!!');
+		this.props.onSubmitCurrentInput(this.props.userCurrentInput);
 	}
 
 	handleChange(e) {
@@ -21,7 +22,7 @@ class TerminalInput extends Component {
 					CoreProxy@rpg-io$
 				</div>
 				<div className={styles.terminalInputField}>
-					<form onSubmit={this.handleSubmit}>
+					<form onSubmit={this.handleSubmit.bind(this)}>
 						<input autofocus={true} onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
 					</form>
 				</div>

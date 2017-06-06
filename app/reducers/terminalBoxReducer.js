@@ -4,6 +4,7 @@
 
 import {
 	SET_USER_CURRENT_INPUT,
+	SUBMIT_USER_INPUT,
 } from '../actions';
 
 // const alert = (state = [], action) => {
@@ -36,8 +37,9 @@ import {
 const userCurrentInput = (state = '', action) => {
 	switch (action.type) {
 		case SET_USER_CURRENT_INPUT:
-		console.log('action', action);
 			return action.userCurrentInput;
+		case SUBMIT_USER_INPUT:
+			return '';
 		default:
 			return state;
 	}
@@ -45,14 +47,15 @@ const userCurrentInput = (state = '', action) => {
 
 const userInputHistory = (state = [], action) => {
 	switch (action.type) {
-		case 'test':
-			console.log('test!');
+		case SUBMIT_USER_INPUT:
+			console.log(state);
+			return state = state.concat([action.userCurrentInput]);
 		default:
 			return state;
 	}
 };
 
 export default ({
-	userInputHistory,
 	userCurrentInput,
+	userInputHistory,
 });

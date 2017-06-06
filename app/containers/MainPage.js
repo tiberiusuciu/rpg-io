@@ -1,7 +1,7 @@
 import MainPage from '../components/MainPage';
 import { connect } from 'react-redux';
 // import { test, setAddress, navigate, startProject, resetDone, setReferredId } from '../../actions';
-import { setUserCurrentInput } from '../actions';
+import { setUserCurrentInput, submitCurrentInput } from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -40,10 +40,13 @@ const mapDispatchToProps = (dispatch) => {
 		onUserCurrentInput: (userCurrentInput) => {
 			dispatch(setUserCurrentInput(userCurrentInput));
 		},
+		onSubmitCurrentInput: (userCurrentInput) => {
+			dispatch(submitCurrentInput(userCurrentInput));
+		},
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	mapDispatchToProps,
 )(MainPage);
