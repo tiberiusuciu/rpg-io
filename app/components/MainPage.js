@@ -15,6 +15,7 @@ class MainPage extends Component {
 						onUserCurrentInput={this.props.onUserCurrentInput}
 						userCurrentInput={this.props.userCurrentInput}
 						onSubmitCurrentInput={this.props.onSubmitCurrentInput}
+						userInputHistory={this.props.userInputHistory}
 					/>
 				</div>
 				<div className={styles.InformationLayout + " col-xs-4"}>

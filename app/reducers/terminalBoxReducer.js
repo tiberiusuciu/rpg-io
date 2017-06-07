@@ -48,8 +48,8 @@ const userCurrentInput = (state = '', action) => {
 const userInputHistory = (state = [], action) => {
 	switch (action.type) {
 		case SUBMIT_USER_INPUT:
-			console.log(state);
-			return state = state.concat([action.userCurrentInput]);
+			state.push(action.userCurrentInput);
+			return state;
 		default:
 			return state;
 	}

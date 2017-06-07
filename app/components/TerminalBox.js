@@ -8,14 +8,17 @@ class TerminalBox extends Component {
 	render() {
 		return (
 			<div>
-				<div className={styles.terminalLogs}>
-					<TerminalLogs/>
+				<div className={styles.terminalLogs} style={{overflowY: 'auto'}}>
+					<TerminalLogs
+						userInputHistory={this.props.userInputHistory}
+					/>
 				</div>
 				<div className={styles.terminalInput}>
 					<TerminalInput
 						onUserCurrentInput={this.props.onUserCurrentInput}
 						userCurrentInput={this.props.userCurrentInput}
 						onSubmitCurrentInput={this.props.onSubmitCurrentInput}
+						userInputHistory={this.props.userInputHistory}
 					/>
 				</div>
 			</div>

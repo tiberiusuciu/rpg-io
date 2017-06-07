@@ -5,7 +5,6 @@ import styles from '../styles/TerminalInput.css'
 class TerminalInput extends Component {
 
 	handleSubmit(e) {
-		console.log(this);
 		e.preventDefault();
 		this.props.onSubmitCurrentInput(this.props.userCurrentInput);
 	}
