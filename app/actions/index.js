@@ -178,4 +178,4 @@ function action(type, payload = {}) {
 // export const getSpecificUser = (accessToken, targetAuth0UserId) => action(GET_SPECIFIC_USER, { accessToken, targetAuth0UserId });
 // export const test = () => action(TEST, {});
 export const setUserCurrentInput = (userCurrentInput) => action(SET_USER_CURRENT_INPUT, { userCurrentInput });
-export const submitCurrentInput = (userCurrentInput) => action(SUBMIT_USER_INPUT, { userCurrentInput });
+export const submitCurrentInput = (username, userCurrentInput) => action(SUBMIT_USER_INPUT, { username, userCurrentInput });

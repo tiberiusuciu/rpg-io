@@ -6,7 +6,7 @@ class TerminalInput extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.onSubmitCurrentInput(this.props.userCurrentInput);
+		this.props.onSubmitCurrentInput(this.props.user.username, this.props.userCurrentInput);
 	}
 
 	handleChange(e) {
@@ -18,7 +18,7 @@ class TerminalInput extends Component {
 		return (
 			<div className={styles.terminalInputContainer}>
 				<div className={styles.terminalInputSignature}>
-					CoreProxy@rpg-io$
+					{`${this.props.user.username}@rpg-io$`}
 				</div>
 				<div className={styles.terminalInputField}>
 					<form onSubmit={this.handleSubmit.bind(this)}>

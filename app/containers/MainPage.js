@@ -7,41 +7,18 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		userCurrentInput: state.userCurrentInput,
 		userInputHistory: state.userInputHistory,
+		user: state.user,
 		// referredId: ownProps.location.query.referredId,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// onAddressChange: (address) => {
-		// 	dispatch(setAddress(address));
-		// },
-		// submitAddress: () => {
-		// 	dispatch(startProject());
-		// 	dispatch(navigate('/location'));
-		// 	dispatch(resetDone());
-		// 	window.localStorage.clear();
-		// },
-		// goToReferal: () => {
-		// 	dispatch(navigate('/referal/'));
-		// },
-		// goToUtility: () => {
-		// 	dispatch(navigate('/utility'));
-		// },
-		// setReferredId: (referredId) => {
-		// 	dispatch(setReferredId(referredId));
-		// },
-		// goToBanks: () => {
-		// 	dispatch(navigate('/banks'));
-		// },
-		// test: () => {
-		// 	dispatch(test());
-		// },
 		onUserCurrentInput: (userCurrentInput) => {
 			dispatch(setUserCurrentInput(userCurrentInput));
 		},
-		onSubmitCurrentInput: (userCurrentInput) => {
-			dispatch(submitCurrentInput(userCurrentInput));
+		onSubmitCurrentInput: (username, userCurrentInput) => {
+			dispatch(submitCurrentInput(username, userCurrentInput));
 		},
 	};
 };
