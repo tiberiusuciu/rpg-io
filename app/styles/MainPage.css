@@ -19,7 +19,8 @@
 
 :local(.CanvasLayout) {
 	height: 50vh;
-	background-color: lime;
+	background-color: royalblue;
+	color: white;
 }
 
 :local(.DetailsBox) {

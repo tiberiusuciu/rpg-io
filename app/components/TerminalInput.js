@@ -22,7 +22,7 @@ class TerminalInput extends Component {
 				</div>
 				<div className={styles.terminalInputField}>
 					<form onSubmit={this.handleSubmit.bind(this)}>
-						<input autofocus={true} onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
+						<input autoComplete="off" autofocus onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
 					</form>
 				</div>
 			</div>

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import styles from '../styles/TerminalLogs.css';
+
 class TerminalLogs extends Component {
 	render() {
 		return (
-			<div>
-				<ul>
+			<div className={styles.lineLength} >
+				<ul className={styles.listStyling}>
 					{
 						this.props.userInputHistory.map( (log) => {
 							return (
