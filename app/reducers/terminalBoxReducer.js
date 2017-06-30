@@ -5,6 +5,7 @@
 import {
 	SET_USER_CURRENT_INPUT,
 	SUBMIT_USER_INPUT,
+	NEW_LOG_ENTRY,
 } from '../actions';
 
 // const alert = (state = [], action) => {
@@ -55,7 +56,22 @@ const userInputHistory = (state = [], action) => {
 	}
 };
 
+const logs = (state = [], action) => {
+	switch (action.type) {
+		case NEW_LOG_ENTRY:
+			state.push({
+				source: action.source,
+				content: action.content,
+				coloration: action.coloration
+			});
+			return state;
+		default:
+			return state;
+	}
+};
+
 export default ({
 	userCurrentInput,
 	userInputHistory,
+	logs,
 });

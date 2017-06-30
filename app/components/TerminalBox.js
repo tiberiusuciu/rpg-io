@@ -11,6 +11,7 @@ class TerminalBox extends Component {
 				<div className={styles.terminalLogs} style={{overflowY: 'auto'}}>
 					<TerminalLogs
 						userInputHistory={this.props.userInputHistory}
+						logs={this.props.logs}
 					/>
 				</div>
 				<div className={styles.terminalInput}>
@@ -19,6 +20,7 @@ class TerminalBox extends Component {
 						userCurrentInput={this.props.userCurrentInput}
 						onSubmitCurrentInput={this.props.onSubmitCurrentInput}
 						userInputHistory={this.props.userInputHistory}
+						user={this.props.user}
 					/>
 				</div>
 			</div>

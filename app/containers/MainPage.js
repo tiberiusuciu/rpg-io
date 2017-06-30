@@ -1,47 +1,36 @@
 import MainPage from '../components/MainPage';
 import { connect } from 'react-redux';
-// import { test, setAddress, navigate, startProject, resetDone, setReferredId } from '../../actions';
-import { setUserCurrentInput, submitCurrentInput } from '../actions';
+import Parser from '../modules/parser';
+import Oracle from '../modules/oracle';
+
+import {
+	setUserCurrentInput, submitCurrentInput, newLogEntry
+} from '../actions';
+
+const _parser = (dispatch, username, userCurrentInput) => {
+	let parsedCommand = Parser.validate(username, userCurrentInput);
+};
 
 const mapStateToProps = (state, ownProps) => {
 	return {
 		userCurrentInput: state.userCurrentInput,
 		userInputHistory: state.userInputHistory,
+		user: state.user,
+		logs: state.logs,
 		// referredId: ownProps.location.query.referredId,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// onAddressChange: (address) => {
-		// 	dispatch(setAddress(address));
-		// },
-		// submitAddress: () => {
-		// 	dispatch(startProject());
-		// 	dispatch(navigate('/location'));
-		// 	dispatch(resetDone());
-		// 	window.localStorage.clear();
-		// },
-		// goToReferal: () => {
-		// 	dispatch(navigate('/referal/'));
-		// },
-		// goToUtility: () => {
-		// 	dispatch(navigate('/utility'));
-		// },
-		// setReferredId: (referredId) => {
-		// 	dispatch(setReferredId(referredId));
-		// },
-		// goToBanks: () => {
-		// 	dispatch(navigate('/banks'));
-		// },
-		// test: () => {
-		// 	dispatch(test());
-		// },
 		onUserCurrentInput: (userCurrentInput) => {
 			dispatch(setUserCurrentInput(userCurrentInput));
 		},
-		onSubmitCurrentInput: (userCurrentInput) => {
-			dispatch(submitCurrentInput(userCurrentInput));
+		onSubmitCurrentInput: (username, userCurrentInput) => {
+			dispatch(submitCurrentInput(username, userCurrentInput));
+			dispatch(newLogEntry(username, userCurrentInput));
+			// PARSER AND ORACLE
+			_parser(dispatch, username, userCurrentInput);
 		},
 	};
 };

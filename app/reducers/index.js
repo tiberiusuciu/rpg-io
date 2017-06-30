@@ -7,14 +7,8 @@ import { merge } from 'lodash';
 // import config from '../config.js';
 
 // Reducers
-// import drawMyRoofReducer from './drawMyRoofReducer.js';
-// import referalProgramReducer from './referalProgramReducer.js';
-// import currentUserReducer from './currentUserReducer.js';
-// import applyForLoanReducer from './applyForLoanReducer.js';
-// import utilityReducer from './utilityReducer.js';
-// import appAlertReducer from './appAlertReducer.js';
-// import bankReducer from './bankReducer.js';
 import terminalBoxReducer from './terminalBoxReducer.js';
+import userReducer from './userReducer.js';
 
 function entities(state = { usage:0 }, action) {
 	if (action.response && action.response.entities) {
@@ -39,12 +33,5 @@ export default combineReducers({
 	routing,
 	entities,
 	...terminalBoxReducer,
-	// forms,
-	// ...drawMyRoofReducer,
-	// ...referalProgramReducer,
-	// ...currentUserReducer,
-	// ...applyForLoanReducer,
-	// ...utilityReducer,
-	// ...appAlertReducer,
-	// ...bankReducer,
+	...userReducer,
 });

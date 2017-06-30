@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 
+import styles from '../styles/TerminalLogs.css';
+
+// TODO: Change to moment.js timing
+let id = 0;
 class TerminalLogs extends Component {
 	render() {
 		return (
-			<div>
-				<ul>
+			<div className={styles.lineLength} >
+				<ul className={styles.listStyling}>
 					{
-						this.props.userInputHistory.map( (log) => {
+						// Log = {
+						// 	username = STRING,
+						// 	content = STRING,
+						// 	coloration = {}
+						// }
+						this.props.logs.map( (log) => {
+							id++;
 							return (
-								<li style={{color: 'white'}}>
-									{log}
+								<li key={id} style={{color: 'white'}}>
+									{`${log.source}@rpg-io$ ${log.content}`}
 								</li>
 							)
 						})
