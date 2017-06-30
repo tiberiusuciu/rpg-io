@@ -8,7 +8,7 @@ import {
 } from '../actions';
 
 const _parser = (dispatch, username, userCurrentInput) => {
-	Parser.validate(username, userCurrentInput);
+	let parsedCommand = Parser.validate(username, userCurrentInput);
 };
 
 const mapStateToProps = (state, ownProps) => {
