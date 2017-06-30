@@ -11,7 +11,8 @@ class TerminalBox extends Component {
 				<div className={styles.terminalLogs} style={{overflowY: 'auto'}}>
 					<TerminalLogs
 						userInputHistory={this.props.userInputHistory}
-						/>
+						logs={this.props.logs}
+					/>
 				</div>
 				<div className={styles.terminalInput}>
 					<TerminalInput

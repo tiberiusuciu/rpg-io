@@ -86,6 +86,7 @@ import { history } from '../services';
 // export const GET_SPECIFIC_USER = 'GET_SPECIFIC_USER';
 export const SET_USER_CURRENT_INPUT = 'SET_USER_CURRENT_INPUT';
 export const SUBMIT_USER_INPUT = 'SUBMIT_USER_INPUT';
+export const NEW_LOG_ENTRY = 'NEW_LOG_ENTRY';
 
 function action(type, payload = {}) {
 	return { type, ...payload };
@@ -179,3 +180,4 @@ function action(type, payload = {}) {
 // export const test = () => action(TEST, {});
 export const setUserCurrentInput = (userCurrentInput) => action(SET_USER_CURRENT_INPUT, { userCurrentInput });
 export const submitCurrentInput = (username, userCurrentInput) => action(SUBMIT_USER_INPUT, { username, userCurrentInput });
+export const newLogEntry = (source, content, coloration) => action(NEW_LOG_ENTRY, {source, content, coloration});

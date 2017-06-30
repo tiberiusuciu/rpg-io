@@ -1,13 +1,22 @@
 import MainPage from '../components/MainPage';
 import { connect } from 'react-redux';
-// import { test, setAddress, navigate, startProject, resetDone, setReferredId } from '../../actions';
-import { setUserCurrentInput, submitCurrentInput } from '../actions';
+import Parser from '../modules/parser';
+import Oracle from '../modules/oracle';
+
+import {
+	setUserCurrentInput, submitCurrentInput, newLogEntry
+} from '../actions';
+
+const _parser = (dispatch, username, userCurrentInput) => {
+	Parser.validate(username, userCurrentInput);
+};
 
 const mapStateToProps = (state, ownProps) => {
 	return {
 		userCurrentInput: state.userCurrentInput,
 		userInputHistory: state.userInputHistory,
 		user: state.user,
+		logs: state.logs,
 		// referredId: ownProps.location.query.referredId,
 	};
 };
@@ -19,6 +28,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onSubmitCurrentInput: (username, userCurrentInput) => {
 			dispatch(submitCurrentInput(username, userCurrentInput));
+			dispatch(newLogEntry(username, userCurrentInput));
+			// PARSER AND ORACLE
+			_parser(dispatch, username, userCurrentInput);
 		},
 	};
 };
