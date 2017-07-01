@@ -1,9 +1,9 @@
-var User = function(specsheet) {
-	this.username = specsheet.username;
-	this.inventory = specsheet.inventory;
-	this.stats = specsheet.stats;
-	this.posX = specsheet.posX;
-	this.poxY = specsheet.posY;
+var User = function() {
+	this.username = "CoreProxy";
+	this.inventory = {};
+	this.stats = {};
+	this.posX = 0;
+	this.poxY = 0;
 }
 
 // Application.prototype._getSurfaceById = function(surfaceID) {

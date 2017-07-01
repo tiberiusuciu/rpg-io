@@ -9,6 +9,7 @@ import {
 
 const _parser = (dispatch, username, userCurrentInput) => {
 	let parsedCommand = Parser.validate(username, userCurrentInput);
+	// Oracle.sendCommand(username, parsedCommand, dispatch);
 };
 
 const mapStateToProps = (state, ownProps) => {
