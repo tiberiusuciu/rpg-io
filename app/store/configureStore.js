@@ -4,6 +4,9 @@ import { createLogger } from 'redux-logger';
 // import api from '../middleware/api';
 import rootReducer from '../reducers';
 import config from '../config.js';
+
+import socketIO from 'socket.io-client';
+import socketIoMiddleware from 'redux-socket.io-middleware';
 // import createSagaMiddleware from 'redux-saga';
 
 // function customSerialize(subset) {
@@ -23,13 +26,18 @@ import config from '../config.js';
 //
 // const stateConfig = { serialize:customSerialize, deserialize:customDeserialize };
 
+var io = socketIO.connect('http://localhost:3000');
+
 const configureStore = () => {
 	// const sagaMiddleware = createSagaMiddleware();
 	const store = createStore(
 		rootReducer,
 		config.defaults.defaultState,
 		compose(
-			applyMiddleware(createLogger()),
+			applyMiddleware(
+				createLogger(),
+				socketIoMiddleware(io),
+			),
 		)
 	);
 

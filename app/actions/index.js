@@ -1,4 +1,5 @@
 import { history } from '../services';
+import config from '../../config.js';
 
 // export const SET_MONTHLY_BILL = 'SET_MONTHLY_BILL';
 // export const SET_USAGE = 'SET_USAGE';
@@ -84,9 +85,10 @@ import { history } from '../services';
 // export const CHANGE_TARGET_USER = 'CHANGE_TARGET_USER';
 // export const SPECIFIC_USER_REFERRALS = 'SPECIFIC_USER_REFERRALS';
 // export const GET_SPECIFIC_USER = 'GET_SPECIFIC_USER';
-export const SET_USER_CURRENT_INPUT = 'SET_USER_CURRENT_INPUT';
-export const SUBMIT_USER_INPUT = 'SUBMIT_USER_INPUT';
-export const NEW_LOG_ENTRY = 'NEW_LOG_ENTRY';
+export const SET_USER_CURRENT_INPUT = config.actionConst.SET_USER_CURRENT_INPUT;
+export const SUBMIT_USER_INPUT = config.actionConst.SUBMIT_USER_INPUT;
+export const NEW_LOG_ENTRY = config.actionConst.NEW_LOG_ENTRY;
+export const SEND_COMMAND = config.actionConst.SEND_COMMAND;
 
 function action(type, payload = {}) {
 	return { type, ...payload };
@@ -181,3 +183,4 @@ function action(type, payload = {}) {
 export const setUserCurrentInput = (userCurrentInput) => action(SET_USER_CURRENT_INPUT, { userCurrentInput });
 export const submitCurrentInput = (username, userCurrentInput) => action(SUBMIT_USER_INPUT, { username, userCurrentInput });
 export const newLogEntry = (source, content, coloration) => action(NEW_LOG_ENTRY, {source, content, coloration});
+export const sendCommand = (parsedCommand) => action(SEND_COMMAND, {parsedCommand, meta: {remote: true}});

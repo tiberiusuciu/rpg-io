@@ -1,14 +1,15 @@
 import MainPage from '../components/MainPage';
 import { connect } from 'react-redux';
 import Parser from '../modules/parser';
-import Oracle from '../modules/oracle';
+// import Oracle from '../modules/oracle';
 
 import {
-	setUserCurrentInput, submitCurrentInput, newLogEntry
+	setUserCurrentInput, submitCurrentInput, newLogEntry,
+	sendCommand,
 } from '../actions';
 
-const _parser = (dispatch, username, userCurrentInput) => {
-	let parsedCommand = Parser.validate(username, userCurrentInput);
+const _parser = (username, userCurrentInput) => {
+	return Parser.validate(username, userCurrentInput);
 	// Oracle.sendCommand(username, parsedCommand, dispatch);
 };
 
@@ -31,7 +32,8 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(submitCurrentInput(username, userCurrentInput));
 			dispatch(newLogEntry(username, userCurrentInput));
 			// PARSER AND ORACLE
-			_parser(dispatch, username, userCurrentInput);
+			let parsedCommand = _parser(username, userCurrentInput);
+			dispatch(sendCommand(parsedCommand));
 		},
 	};
 };
