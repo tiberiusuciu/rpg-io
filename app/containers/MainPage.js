@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
 		onSubmitCurrentInput: (username, userCurrentInput) => {
 			dispatch(submitCurrentInput(username, userCurrentInput));
 			dispatch(newLogEntry(username, userCurrentInput));
-			// PARSER AND ORACLE
+			// PARSER
 			let parsedCommand = _parser(username, userCurrentInput);
 			if(parsedCommand.validCommand) {
 				dispatch(sendCommand(parsedCommand));
