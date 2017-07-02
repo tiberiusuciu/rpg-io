@@ -89,6 +89,7 @@ export const SET_USER_CURRENT_INPUT = config.actionConst.SET_USER_CURRENT_INPUT;
 export const SUBMIT_USER_INPUT = config.actionConst.SUBMIT_USER_INPUT;
 export const NEW_LOG_ENTRY = config.actionConst.NEW_LOG_ENTRY;
 export const SEND_COMMAND = config.actionConst.SEND_COMMAND;
+export const INVALID_COMMAND = config.actionConst.INVALID_COMMAND;
 
 function action(type, payload = {}) {
 	return { type, ...payload };
@@ -184,3 +185,4 @@ export const setUserCurrentInput = (userCurrentInput) => action(SET_USER_CURRENT
 export const submitCurrentInput = (username, userCurrentInput) => action(SUBMIT_USER_INPUT, { username, userCurrentInput });
 export const newLogEntry = (source, content, coloration) => action(NEW_LOG_ENTRY, {source, content, coloration});
 export const sendCommand = (parsedCommand) => action(SEND_COMMAND, {parsedCommand, meta: {remote: true}});
+export const invalidCommand = (parsedCommand) => action(INVALID_COMMAND, {parsedCommand});

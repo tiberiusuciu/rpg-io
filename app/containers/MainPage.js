@@ -5,7 +5,7 @@ import Parser from '../modules/parser';
 
 import {
 	setUserCurrentInput, submitCurrentInput, newLogEntry,
-	sendCommand,
+	sendCommand, invalidCommand,
 } from '../actions';
 
 const _parser = (username, userCurrentInput) => {
@@ -33,7 +33,12 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(newLogEntry(username, userCurrentInput));
 			// PARSER AND ORACLE
 			let parsedCommand = _parser(username, userCurrentInput);
-			dispatch(sendCommand(parsedCommand));
+			if(parsedCommand.validCommand) {
+				dispatch(sendCommand(parsedCommand));
+			}
+			else {
+				dispatch(invalidCommand(parsedCommand));
+			}
 		},
 	};
 };

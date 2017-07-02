@@ -30,17 +30,20 @@ module.exports = {
 					validCommand: true,
 					command,
 					params,
+					source,
 				};
 			}
 			return {
 				validCommand: false,
-				message: command + " command " + (sizeParams < dictionnaryCommand.minParams ? " needs at least " + dictionnaryCommand.minParams + " parameters" : "")
-												+ (sizeParams > dictionnaryCommand.maxParams ? " needs no more than " + dictionnaryCommand.maxParams + " parameters" : ""),
+				message: command + " command " + (sizeParams < dictionnaryCommand.minParams ? "needs at least " + dictionnaryCommand.minParams + " parameters" : "")
+												+ (sizeParams > dictionnaryCommand.maxParams ? "needs no more than " + dictionnaryCommand.maxParams + " parameters" : ""),
+				source,
 			};
 		}
 		return {
 			validCommand: false,
 			message: command + " command does not exist",
+			source,
 		};
 	},
 };
