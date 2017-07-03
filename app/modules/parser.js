@@ -2,7 +2,7 @@
 // This does not validate if the command seems logical or not, that's the oracle's job
 
 import Dictionnary from './dictionnary.js';
-
+import config from '../../config.js';
 import { split, lowerCase, slice, size } from 'lodash';
 
 module.exports = {
@@ -15,7 +15,6 @@ module.exports = {
 		// extracting content
 		let splitContent = split(content, " ");
 		let command = splitContent[0];
-
 		// validating content
 		if (Dictionnary[command]) {
 

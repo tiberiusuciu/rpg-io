@@ -1,12 +1,22 @@
 // Dictionnary holds all possible commands
+import config from '../../config.js';
 
-module.exports = {
-	// @command EAT
-	// @description: eat something specified after the command
-	// @param: 1 - infinity
-	eat: {
-		minParams: 1,
-		maxParams: Infinity,
-	},
+var Dictionnary = {};
 
+// @command SAY
+// @description: say something specified after the command
+// @param: 1 - infinity
+Dictionnary[config.commandNames.SAY] = {
+	minParams: 1,
+	maxParams: Infinity,
 };
+
+// @command EAT
+// @description: eat something specified after the command
+// @param: 1 - infinity
+Dictionnary[config.commandNames.EAT] = {
+	minParams: 1,
+	maxParams: Infinity,
+};
+
+module.exports = Dictionnary;

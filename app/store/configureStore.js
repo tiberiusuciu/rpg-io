@@ -26,7 +26,8 @@ import socketIoMiddleware from 'redux-socket.io-middleware';
 //
 // const stateConfig = { serialize:customSerialize, deserialize:customDeserialize };
 
-var io = socketIO.connect('http://localhost:3000');
+// Removed localhost address... seems like recent socket.io doesnt take this any longer
+var io = socketIO.connect();
 
 const configureStore = () => {
 	// const sagaMiddleware = createSagaMiddleware();

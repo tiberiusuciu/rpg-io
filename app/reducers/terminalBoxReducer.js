@@ -3,6 +3,7 @@ import {
 	SUBMIT_USER_INPUT,
 	NEW_LOG_ENTRY,
 	INVALID_COMMAND,
+	NEW_USER,
 } from '../actions';
 
 const userCurrentInput = (state = '', action) => {
@@ -16,6 +17,7 @@ const userCurrentInput = (state = '', action) => {
 	}
 };
 
+// This might not work, see logs reducer
 const userInputHistory = (state = [], action) => {
 	switch (action.type) {
 		case SUBMIT_USER_INPUT:
@@ -29,17 +31,22 @@ const userInputHistory = (state = [], action) => {
 const logs = (state = [], action) => {
 	switch (action.type) {
 		case NEW_LOG_ENTRY:
-			state.push({
-				source: action.source,
-				content: action.content,
-				coloration: action.coloration,
-			});
-			return state;
+			return [
+				...state,
+				{
+					source: action.source,
+					content: action.content,
+					coloration: action.coloration,
+				},
+			];
 		case INVALID_COMMAND:
-			state.push({
-				source: action.parsedCommand.source,
-				content: action.parsedCommand.message,
-			})
+			return [
+				...state,
+				{
+					source: action.parsedCommand.source,
+					content: action.parsedCommand.message,
+				},
+			];
 		default:
 			return state;
 	}

@@ -7,4 +7,8 @@ module.exports = {
 		INVALID_COMMAND: 'INVALID_COMMAND',
 		NEW_USER: 'NEW_USER',
 	},
+	commandNames: {
+		EAT: 'eat',
+		SAY: 'say',
+	}
 }

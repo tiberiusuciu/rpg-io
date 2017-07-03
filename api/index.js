@@ -25,24 +25,25 @@ app.use('/', function (req, res) {
 
 var port = 3000;
 
-var game = new Game();
-
 server.listen(port, function(error) {
 	if (error) throw error;
 	console.log("Express server listening on port", port);
 });
 
+// Oracle section
+var game = new Game();
+
 io.on('connection', function (socket) {
 
 	// Making new user here
-	let user = game.addUser('CoreProxy');
+	let user = game.addUser('unknown');
 	socket.emit('action', {type: config.actionConst.NEW_USER, user});
 
 	socket.on("action", function (action) {
 		switch (action.type) {
 			case config.actionConst.SEND_COMMAND:
-				game.commandReceived(action.parsedCommand);
-				// io.emit('action', {type: 'NEW_SHIT', meta: {remote: true}, message: 'hello bitches!!!'})
+				let response = game.commandReceived(action.parsedCommand);
+				io.emit('action', response);
 		}
 	})
 

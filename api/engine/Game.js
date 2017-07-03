@@ -1,3 +1,6 @@
+var _ = require('lodash');
+
+var config = require('../../config.js');
 var User = require('./User.js');
 
 // Pass down a specsheet which is essentially a save file of the game
@@ -13,7 +16,11 @@ Game.prototype.commandReceived = function(command) {
 	// Find the user
 	// call his eat method
 	// dispatch new method afterwards
-	console.log(command);
+	switch (command.command) {
+		case config.commandNames.SAY:
+			return { type: config.actionConst.NEW_LOG_ENTRY, meta: {remote: false}, source: command.source, content: _.join(command.params, ' ')};
+		default:
+	}
 };
 
 Game.prototype.addUser = function(username) {
