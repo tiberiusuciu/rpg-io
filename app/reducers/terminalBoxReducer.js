@@ -45,6 +45,7 @@ const logs = (state = [], action) => {
 				{
 					source: action.parsedCommand.source,
 					content: action.parsedCommand.message,
+					coloration: '#A00',
 				},
 			];
 		default:

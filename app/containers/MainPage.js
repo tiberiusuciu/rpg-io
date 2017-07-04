@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onSubmitCurrentInput: (username, userCurrentInput) => {
 			dispatch(submitCurrentInput(username, userCurrentInput));
-			dispatch(newLogEntry(username, userCurrentInput));
+			dispatch(newLogEntry(username, userCurrentInput, "#666"));
 
 			// PARSER
 			let parsedCommand = _parser(username, userCurrentInput);

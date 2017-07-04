@@ -3,18 +3,19 @@
 
 import Dictionnary from './dictionnary.js';
 import config from '../../config.js';
-import { split, lowerCase, slice, size } from 'lodash';
+import { split, toLower, slice, size } from 'lodash';
 
 module.exports = {
 	validate(source, content) {
 		// making content universal
-		content = lowerCase(content);
+		let contentLowerCase = toLower(content);
 
 		// Chained commands will need to be splitted by | or && before next block of code
 
 		// extracting content
-		let splitContent = split(content, " ");
+		let splitContent = split(contentLowerCase, " ");
 		let command = splitContent[0];
+
 		// validating content
 		if (Dictionnary[command]) {
 
@@ -25,6 +26,14 @@ module.exports = {
 
 			// validating params
 			if(sizeParams >= dictionnaryCommand.minParams && sizeParams <= dictionnaryCommand.maxParams) {
+
+				// HOTPATCH?
+				// If command is SAY, we should maintain case sensitivity
+				if(command === config.commandNames.SAY) {
+					splitContent = split(content, " ");
+					params = slice(splitContent, 1);
+				}
+
 				return {
 					validCommand: true,
 					command,

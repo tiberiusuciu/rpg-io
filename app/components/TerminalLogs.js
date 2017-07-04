@@ -13,12 +13,12 @@ class TerminalLogs extends Component {
 						// Log = {
 						// 	username = STRING,
 						// 	content = STRING,
-						// 	coloration = {}
+						// 	coloration = {} for now it's a hex value
 						// }
 						this.props.logs.map( (log) => {
 							id++;
 							return (
-								<li key={id} style={{color: 'white'}}>
+								<li key={id} style={{color: log.coloration ? log.coloration : 'white'}}>
 									{`${log.source}@rpg-io$ ${log.content}`}
 								</li>
 							)
