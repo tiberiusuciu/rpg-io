@@ -19,11 +19,11 @@
 
 :local(.CanvasLayout) {
 	height: 50vh;
-	background-color: royalblue;
-	color: white;
+	background-color: white;
+	/*color: black;*/
 }
 
 :local(.DetailsBox) {
 	height: 50vh;
-	background-color: gold;
+	background-color: white;
 }

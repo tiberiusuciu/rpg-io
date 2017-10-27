@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import styles from '../styles/TerminalInput.css'
-
 class TerminalInput extends Component {
 
 	handleSubmit(e) {
@@ -14,6 +13,12 @@ class TerminalInput extends Component {
 		this.props.onUserCurrentInput(e.target.value);
 	}
 
+	test(e) {
+		e.preventDefault();
+		console.log('target?', e.key);
+		console.log('is it tab?', e.key === "Tab");
+	}
+
 	render() {
 		return (
 			<div className={styles.terminalInputContainer}>
@@ -22,7 +27,7 @@ class TerminalInput extends Component {
 				</div>
 				<div className={styles.terminalInputField}>
 					<form onSubmit={this.handleSubmit.bind(this)}>
-						<input autoComplete="off" autofocus onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
+						<input autoComplete="off" autofocus onKeyDown={this.test} onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
 					</form>
 				</div>
 			</div>
