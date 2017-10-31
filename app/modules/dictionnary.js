@@ -19,4 +19,14 @@ Dictionnary[config.commandNames.EAT] = {
 	maxParams: Infinity,
 };
 
+// @command CLEAR
+// @description: clears the logs on the terminallogs, it allows params, but it does nothing
+// @param: none
+// @note: Maybe add a param that could tell how many logs to clear?
+Dictionnary[config.commandNames.CLEAR] = {
+	minParams: 0,
+	maxParams: Infinity,
+};
+
+
 module.exports = Dictionnary;

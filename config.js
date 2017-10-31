@@ -10,5 +10,6 @@ module.exports = {
 	commandNames: {
 		EAT: 'eat',
 		SAY: 'say',
+		CLEAR: 'clear',
 	}
 }

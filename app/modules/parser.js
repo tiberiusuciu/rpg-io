@@ -3,7 +3,7 @@
 
 import Dictionnary from './dictionnary.js';
 import config from '../../config.js';
-import { split, toLower, slice, size } from 'lodash';
+import { split, toLower, slice, size, filter, each, trim } from 'lodash';
 
 module.exports = {
 	validate(source, content) {
@@ -14,6 +14,20 @@ module.exports = {
 
 		// extracting content
 		let splitContent = split(contentLowerCase, " ");
+
+
+		//Optimisization could be done here
+		// Trim excess spaces
+		splitContent = each(splitContent, (segment) => {
+			return trim(segment);
+		});
+
+		// Removing extra spaces
+		splitContent = filter(splitContent, (segment) => {
+			return segment !== "";
+		});
+
+
 		let command = splitContent[0];
 
 		// validating content

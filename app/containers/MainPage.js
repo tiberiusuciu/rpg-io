@@ -35,6 +35,7 @@ const mapDispatchToProps = (dispatch) => {
 				dispatch(newLogEntry(username, userCurrentInput, "#666"));
 				// PARSER
 				let parsedCommand = _parser(username, userCurrentInput);
+				console.log('parsedCommand', parsedCommand);
 				if(parsedCommand.validCommand) {
 					dispatch(sendCommand(parsedCommand));
 				}
