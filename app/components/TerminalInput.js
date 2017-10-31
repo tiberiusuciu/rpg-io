@@ -13,10 +13,11 @@ class TerminalInput extends Component {
 		this.props.onUserCurrentInput(e.target.value);
 	}
 
-	test(e) {
-		e.preventDefault();
-		console.log('target?', e.key);
-		console.log('is it tab?', e.key === "Tab");
+	handleTabulations(e) {
+		if (e.key == "Tab") {
+			e.preventDefault();
+			console.log("You have pressed tab!");
+		}
 	}
 
 	render() {
@@ -27,7 +28,7 @@ class TerminalInput extends Component {
 				</div>
 				<div className={styles.terminalInputField}>
 					<form onSubmit={this.handleSubmit.bind(this)}>
-						<input autoComplete="off" autofocus onKeyDown={this.test} onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
+						<input autoComplete="off" autofocus onKeyDown={this.handleTabulations} onChange={this.handleChange.bind(this)} value={this.props.userCurrentInput} className={styles.terminalInputText} name="command" type="text"/>
 					</form>
 				</div>
 			</div>

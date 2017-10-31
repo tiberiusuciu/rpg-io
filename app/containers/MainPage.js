@@ -29,16 +29,18 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(setUserCurrentInput(userCurrentInput));
 		},
 		onSubmitCurrentInput: (username, userCurrentInput) => {
-			dispatch(submitCurrentInput(username, userCurrentInput));
-			dispatch(newLogEntry(username, userCurrentInput, "#666"));
-
-			// PARSER
-			let parsedCommand = _parser(username, userCurrentInput);
-			if(parsedCommand.validCommand) {
-				dispatch(sendCommand(parsedCommand));
-			}
-			else {
-				dispatch(invalidCommand(parsedCommand));
+			// Temporarily disabled empty inputs until I figure out what purpose they could serve
+			if (userCurrentInput !== "") {
+				dispatch(submitCurrentInput(username, userCurrentInput));
+				dispatch(newLogEntry(username, userCurrentInput, "#666"));
+				// PARSER
+				let parsedCommand = _parser(username, userCurrentInput);
+				if(parsedCommand.validCommand) {
+					dispatch(sendCommand(parsedCommand));
+				}
+				else {
+					dispatch(invalidCommand(parsedCommand));
+				}
 			}
 		},
 	};
