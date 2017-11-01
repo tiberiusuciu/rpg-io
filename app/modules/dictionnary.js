@@ -9,6 +9,7 @@ var Dictionnary = {};
 Dictionnary[config.commandNames.SAY] = {
 	minParams: 1,
 	maxParams: Infinity,
+	broadcast: true,
 };
 
 // @command EAT
@@ -17,6 +18,7 @@ Dictionnary[config.commandNames.SAY] = {
 Dictionnary[config.commandNames.EAT] = {
 	minParams: 1,
 	maxParams: Infinity,
+	broadcast: true,
 };
 
 // @command CLEAR
@@ -26,6 +28,7 @@ Dictionnary[config.commandNames.EAT] = {
 Dictionnary[config.commandNames.CLEAR] = {
 	minParams: 0,
 	maxParams: Infinity,
+	broadcast: false,
 };
 
 

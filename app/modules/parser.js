@@ -50,6 +50,7 @@ module.exports = {
 
 				return {
 					validCommand: true,
+					broadcast: dictionnaryCommand.broadcast,
 					command,
 					params,
 					source,

@@ -35,9 +35,13 @@ const mapDispatchToProps = (dispatch) => {
 				dispatch(newLogEntry(username, userCurrentInput, "#666"));
 				// PARSER
 				let parsedCommand = _parser(username, userCurrentInput);
-				console.log('parsedCommand', parsedCommand);
 				if(parsedCommand.validCommand) {
-					dispatch(sendCommand(parsedCommand));
+					if (parsedCommand.broadcast) {
+						dispatch(sendCommand(parsedCommand));
+					}
+					else {
+						// When the command does not require to notify the api
+					}
 				}
 				else {
 					dispatch(invalidCommand(parsedCommand));

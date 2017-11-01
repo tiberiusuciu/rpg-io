@@ -19,7 +19,10 @@ Game.prototype.commandReceived = function(command) {
 	switch (command.command) {
 		case config.commandNames.SAY:
 			return { type: config.actionConst.NEW_LOG_ENTRY, meta: {remote: false}, source: command.source, content: _.join(command.params, ' ')};
+		case config.commandNames.EAT:
+			return { type: config.actionConst.NEW_LOG_ENTRY, meta: {remote: false}, source: command.source, content: command.source + " ate " + command.params[0] }
 		default:
+			return { type: config.actionConst.NEW_LOG_ENTRY, meta: {remote: false}, source: "Engine", content: "Something went wrong!"};
 	}
 };
 
