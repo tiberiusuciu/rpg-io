@@ -31,5 +31,15 @@ Dictionnary[config.commandNames.CLEAR] = {
 	broadcast: false,
 };
 
+// @command USERNAME
+// @description: changes username
+// @param: 1
+// @note: This command might be removed later-on
+Dictionnary[config.commandNames.USERNAME] = {
+	minParams: 1,
+	maxParams: 1,
+	broadcast: false,
+};
+
 
 module.exports = Dictionnary;

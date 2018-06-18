@@ -11,5 +11,6 @@ module.exports = {
 		EAT: 'eat',
 		SAY: 'say',
 		CLEAR: 'clear',
+		USERNAME: 'username'
 	}
 }
